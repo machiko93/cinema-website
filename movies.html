@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><title>Book Ticket</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="movies.html">Movies</a>
+  <a href="events.html">Events</a>
+  <a href="contact.html">Contact</a>
+</nav>
+<form id="booking">
+  <section>
+    <h2>1. Movie</h2>
+    <select>
+      <option>Movie A</option>
+      <option>Movie B</option>
+    </select>
+    <button type="button" onclick="next()">Next</button>
+  </section>
+  <section hidden>
+    <h2>2. Experience</h2>
+    <label><input type="radio" name="exp">3D</label>
+    <label><input type="radio" name="exp">4D</label>
+    <label><input type="radio" name="exp">IMAX</label>
+    <button type="button" onclick="next()">Next</button>
+  </section>
+  <section hidden>
+    <h2>3. Time</h2>
+    <select>
+      <option>10:00</option>
+      <option>13:00</option>
+    </select>
+    <button type="button" onclick="next()">Next</button>
+  </section>
+  <section hidden>
+    <h2>4. Seats</h2>
+    <label><input type="checkbox">A1</label>
+    <label><input type="checkbox">A2</label>
+    <button type="button" onclick="next()">Next</button>
+  </section>
+  <section hidden>
+    <h2>5. Ticket Type</h2>
+    <label><input type="radio" name="type">Adult</label>
+    <label><input type="radio" name="type">Child</label>
+    <button type="button" onclick="next()">Next</button>
+  </section>
+  <section hidden>
+    <h2>6. Snacks</h2>
+    <label><input type="checkbox">E-Combo</label>
+    <label><input type="checkbox">Ala Carte</label>
+    <button type="button" onclick="next()">Next</button>
+  </section>
+  <section hidden>
+    <h2>7. Payment</h2>
+    <label><input type="radio" name="pay">Cash</label>
+    <label><input type="radio" name="pay">E-wallet</label>
+    <label><input type="radio" name="pay">Card</label>
+    <button type="submit">Confirm</button>
+  </section>
+</form>
+<script>
+let step = 0;
+function next() {
+  const sections = document.querySelectorAll('#booking section');
+  sections[step].hidden = true;
+  step++;
+  sections[step].hidden = false;
+}
+document.getElementById('booking').addEventListener('submit', e => {
+  e.preventDefault();
+  e.target.innerHTML = '<h2>Ticket confirmed!</h2><p>Show QR code, collect receipt and snacks, then head to your hall.</p>';
+});
+</script>
+</body>
+</html>
