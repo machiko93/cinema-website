@@ -1,3 +1,106 @@
-body { font-family: sans-serif; margin: 20px; }
-nav a { margin-right: 10px; }
-section { margin: 15px 0; }
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #111;
+  color: #eee;
+  min-height: 100vh;
+}
+
+nav {
+  background: #222;
+  padding: 10px;
+}
+
+nav a {
+  margin-right: 10px;
+  color: #ddd;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+section {
+  margin: 20px;
+}
+
+button {
+  background: #ffcc00;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e6b800;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 3px;
+  background: #444;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.seat.selected {
+  background: #4caf50;
+}
+
+.movie-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.movie-card {
+  text-align: center;
+}
+
+.movie-card img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.movie-choice {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.movie-choice img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.events-list {
+  list-style: none;
+  padding: 0;
+}
+
+.events-list li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.events-list img {
+  border-radius: 4px;
+}
+
+.map {
+  display: block;
+  margin: 20px auto;
+  border-radius: 4px;
+}

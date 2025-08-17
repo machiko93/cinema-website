@@ -14,6 +14,10 @@
 <form id="booking">
   <section>
     <h2>1. Movie</h2>
+    <div class="movie-choice">
+      <img src="https://via.placeholder.com/100x150?text=Movie+A" alt="Movie A poster">
+      <img src="https://via.placeholder.com/100x150?text=Movie+B" alt="Movie B poster">
+    </div>
     <select>
       <option>Movie A</option>
       <option>Movie B</option>
@@ -37,8 +41,7 @@
   </section>
   <section hidden>
     <h2>4. Seats</h2>
-    <label><input type="checkbox">A1</label>
-    <label><input type="checkbox">A2</label>
+    <div id="seats"></div>
     <button type="button" onclick="next()">Next</button>
   </section>
   <section hidden>
@@ -69,9 +72,23 @@ function next() {
   step++;
   sections[step].hidden = false;
 }
+
+const seatContainer = document.getElementById('seats');
+const rows = ['A', 'B', 'C'];
+rows.forEach(r => {
+  for (let i = 1; i <= 5; i++) {
+    const seat = document.createElement('div');
+    seat.className = 'seat';
+    seat.textContent = r + i;
+    seat.addEventListener('click', () => seat.classList.toggle('selected'));
+    seatContainer.appendChild(seat);
+  }
+  seatContainer.appendChild(document.createElement('br'));
+});
+
 document.getElementById('booking').addEventListener('submit', e => {
   e.preventDefault();
-  e.target.innerHTML = '<h2>Ticket confirmed!</h2><p>Show QR code, collect receipt and snacks, then head to your hall.</p>';
+  e.target.innerHTML = '<h2>Ticket confirmed!</h2><p>Electronic ticket and QR code generated. View order details or request a refund from your account. Collect your receipt and snacks at the counter, then scan the QR code at the entrance and find your hall and seat.</p>';
 });
 </script>
 </body>
